@@ -103,6 +103,15 @@ module Methods2
 
 	# TODO - write rotate_left
 
+	def rotate_left?(array)
+		array = [array[1], array[2], array[0]]
+		array
+	end
+
 	# TODO - write double23?
+
+	def double32?(array)
+		
+	end
 
 end

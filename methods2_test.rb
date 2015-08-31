@@ -101,4 +101,22 @@ class Methods2Test < MiniTest::Test
 		assert_equal false,@m.first_last_six?([2, 0, 5, 3, 4, 3])
 		assert_equal false,@m.first_last_six?([4, 0, 5, 3, 4, 7])
 	end
+
+	def test_rotate_left
+		assert_equal [2,3,1],@m.rotate_left?([1,2,3])
+		assert_equal [0,7,4],@m.rotate_left?([4,0,7])
+		assert_equal [5,2,3],@m.rotate_left?([3,5,2])
+	end
+
+	def test_double23
+		assert_equal true,@m.double23?([2,2,3])
+		assert_equal true,@m.double23?([2,2])
+		assert_equal true,@m.double23?([3,3])
+		assert_equal true,@m.double23?([3,3,2])
+		assert_equal true,@m.double23?([3,2,2])
+		assert_equal false,@m.double23?([3,2,5])
+		assert_equal false,@m.double23?([3,2])
+		assert_equal false,@m.double23?([3,4])
+		assert_equal false,@m.double23?([3,4,8])
+	end
 end
