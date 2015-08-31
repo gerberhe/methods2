@@ -67,4 +67,38 @@ class Methods2Test < MiniTest::Test
 		assert_equal 0, @m.ticket?(2,3,3)
 	end
 
+	def test_in_order
+		assert_equal true,@m.in_order?(1,2,3,false)
+		assert_equal true,@m.in_order?(1,2,5,false)
+		assert_equal true,@m.in_order?(1,3,6,false)
+		assert_equal false,@m.in_order?(2,1,3,false)
+		assert_equal false,@m.in_order?(1,3,2,false)
+		assert_equal false,@m.in_order?(1,3,2,false)
+		assert_equal true,@m.in_order?(2,1,2,true)
+		assert_equal true,@m.in_order?(4,3,7,true)
+	end
+
+	def test_less_by_ten
+		assert_equal true,@m.less_by_ten?(0,11,0)
+		assert_equal false,@m.less_by_ten?(0,9,0)
+		assert_equal false,@m.less_by_ten?(9,0,0)
+		assert_equal false,@m.less_by_ten?(9,7,3)
+		assert_equal true,@m.less_by_ten?(11,0,1)
+		assert_equal true,@m.less_by_ten?(1,0,11)
+	end
+
+	def test_fizz_string
+		assert_equal "Fizz",@m.fizz_string?("fade")
+		assert_equal "Buzz",@m.fizz_string?("gob")
+		assert_equal "FizzBuzz",@m.fizz_string?("flab")
+		assert_equal "god",@m.fizz_string?("god")
+	end
+
+	def test_first_last_six
+		assert_equal true,@m.first_last_six?([6, 0, 5, 3, 4])
+		assert_equal true,@m.first_last_six?([6, 0, 5, 3, 4, 6])
+		assert_equal true,@m.first_last_six?([2, 0, 5, 3, 4, 6])
+		assert_equal false,@m.first_last_six?([2, 0, 5, 3, 4, 3])
+		assert_equal false,@m.first_last_six?([4, 0, 5, 3, 4, 7])
+	end
 end
