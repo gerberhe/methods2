@@ -110,8 +110,23 @@ module Methods2
 
 	# TODO - write double23?
 
-	def double32?(array)
-		
+	def double23?(array)
+		i = 0
+		threes = 0
+		twos = 0
+		begin
+			if(array[i]) == 3
+				threes += 1
+			elsif(array[i]) == 2
+				twos += 1
+			end
+			i += 1
+		end until i > array.length
+		if twos >= 2 || threes >= 2
+			true
+		else
+			false
+		end
 	end
 
 end
